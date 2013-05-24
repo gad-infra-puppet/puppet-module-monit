@@ -1,5 +1,5 @@
-check filesystem mounter.nfs.<%= title %> with path
-<%= mountpoint %>
+check filesystem mounter.nfs.<%= title %> 
+    with path <%= mountpoint %>
     mode active
     start program = "/bin/mount <%= mountpoint %>"
     stop program = "/bin/umount -l <%= mountpoint %>"
@@ -7,6 +7,6 @@ check filesystem mounter.nfs.<%= title %> with path
     depends mounter.nfs.<%= title %>.file
     if 5 restarts with 5 cycles then timeout
 
-check file mounter.nfs.<%= title %>.file with path
-<%= title %>/<%= check_file %>
+check file mounter.nfs.<%= title %>.file 
+    with path <%= mountpoint %>/<%= check_file %>
     mode active
