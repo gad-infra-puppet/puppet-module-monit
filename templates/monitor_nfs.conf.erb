@@ -1,0 +1,12 @@
+check filesystem mounter.nfs.<%= title %> with path
+<%= mountpoint %>
+    mode active
+    start program = "/bin/mount <%= mountpoint %>"
+    stop program = "/bin/umount -l <%= mountpoint %>"
+    if changed fsflags then restart
+    depends mounter.nfs.<%= title %>.file
+    if 5 restarts with 5 cycles then timeout
+
+check file mounter.nfs.<%= title %>.file with path
+<%= title %>/<%= check_file %>
+    mode active
