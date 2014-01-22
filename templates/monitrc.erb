@@ -101,7 +101,7 @@ set mailserver <%= mailserver %>
 ## events by using a filter as in the second example below. 
 #
 <% if @admin and ! @admin.empty? -%>
-set alert <%= @admin %>                       # receive all alerts
+  set alert <%= @admin %> not on {INSTANCE}  # receive all alerts except monit itself
 <% end -%>
 # set alert manager@foo.bar only on { timeout }  # receive just service-
 #                                                # timeout alert
