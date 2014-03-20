@@ -1,2 +1,2 @@
 check host Gateway with address <%= pri_default_gw %>
-if failed icmp type echo count 3 with timeout 15 seconds then exec "/sbin/ip route replace default via <%= sec_default_gw %> dev <%= interface %>"
+  if failed icmp type echo count 3 with timeout 15 seconds then exec "/sbin/ip route replace default via <%= sec_default_gw %> dev <%= interface %>" else if recovered then exec "/sbin/ip route replace default via <%= pri_default_gw %> dev <%= interface %>"
