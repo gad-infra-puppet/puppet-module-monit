@@ -13,7 +13,7 @@
 #
 # === Authors
 #
-# Mingxiang Zhang <ming.zhang@gree.net>
+# Mingxiang Zhang <hitxiang@gmail.com>
 #
 #
 define monit::monitor_nfs (

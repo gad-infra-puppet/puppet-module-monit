@@ -1,4 +1,4 @@
-# == Class: monit::monitor_nfs
+# == Class: monit::monitor_default_gw
 #
 # This module configures a nfs mount point to be monitored by Monit
 #
@@ -6,14 +6,15 @@
 #
 # === Examples
 #
-#  monit::monitor_nfs { 'monit-nfs-imagesp':
-#    mountpoint => '/deploy/shared/public/mobile_banner_ads',
-#    check_file => 'mouter.check',
-#  }
+# monit::monitor_default_gw { 'default_gw':
+#   pri_default_gw => $::default_gateway,
+#   sec_default_gw => $params::standby_gw_ip,
+#   interface => $::default_gateway_interface,
+# }
 #
 # === Authors
 #
-# Mingxiang Zhang <ming.zhang@gree.net>
+# Mingxiang Zhang <hitxiang@gmail.com>
 #
 #
 define monit::monitor_default_gw (
